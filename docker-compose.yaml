@@ -1,0 +1,22 @@
+version: "3"
+services:
+  ddagent:
+    image: datadog/docker-dd-agent
+    environment:
+      - DD_APM_ENABLED=true
+      - DD_BIND_HOST=0.0.0.0
+      - DD_API_KEY=[DATADOG_API_KEY]
+    ports:
+      - "8126:8126"
+
+  debian:
+    build:
+      context: ./
+      dockerfile: debian.dockerfile
+    command: wait-for-it ddagemt:8126 -- dotnet /app/TodoApi.dll
+    environment:
+      - DD_TRACE_AGENT_HOSTNAME=ddagent
+    ports:
+      - "80:80"
+    depends_on:
+      - ddagent
