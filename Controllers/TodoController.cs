@@ -40,7 +40,7 @@ namespace TodoApi.Controllers
             return CreatedAtRoute("GetTodo", new { id = item.Id }, item);
         }
 
-        // Route: /api/todo/getbyid/{id}
+        // Route: /api/todo/{id}
         [HttpGet("{id}", Name = "GetTodo")]
         public ActionResult<TodoItem> GetById(long id)
         {
@@ -52,7 +52,7 @@ namespace TodoApi.Controllers
             return item;
         }
 
-        // Route: /api/todo/update/{id}
+        // Route: /api/todo/{id}
         [HttpPut("{id}")]
         public IActionResult Update(long id, TodoItem item)
         {
@@ -70,7 +70,7 @@ namespace TodoApi.Controllers
             return NoContent();
         }
 
-        // Route: /api/todo/delete/{id}
+        // Route: /api/todo/{id}
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
