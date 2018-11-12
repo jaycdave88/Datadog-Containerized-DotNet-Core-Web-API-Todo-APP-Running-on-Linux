@@ -5,16 +5,18 @@
 > `docker-compose up` 
 
 **Information on routes and payload:**
-- POST /api/todo/
+> To hit the endpoints, use a tool like [Postman](https://www.getpostman.com/apps) and use the endpoint of: `http://localhost:80/{ENDPOINTS_FOUND_BELOW}`
+
+- **POST** /api/todo/
     - Create a new Todo item.
         - i.e.: ```{"name": "siting at the airport","isComplete": false}```
-- GET /api/todo/
+- **GET** /api/todo/
    - Will return **all** Todo items.
-- GET /api/todo/{id}
+- **GET** /api/todo/{id}
     - Will return a specific Todo item.
-- PUT /api/todo/{id}
+- **PUT** /api/todo/{id}
     - Will update the Todo item.
         - i.e.: ```{"name": "siting at the airport","isComplete": true}```
-- DELETE /api/todo/{id}
+- **DELETE** /api/todo/{id}
     - Delete a specific Todo item by giving it the ID.
 
